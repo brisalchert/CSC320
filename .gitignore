@@ -1,5 +1,6 @@
 # Microsoft Word
 *.docx
+*.tmp
 
 ### IntelliJ IDEA ###
 out/

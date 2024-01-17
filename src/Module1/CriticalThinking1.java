@@ -22,6 +22,20 @@ public class CriticalThinking1 {
         String firstName, lastName, streetAddress, city;
         int zipCode;
 
-        
+        // Take user input
+        System.out.print("Enter First Name: ");
+        firstName = input.nextLine();
+
+        System.out.print("Enter Last Name: ");
+        lastName = input.nextLine();
+
+        System.out.print("Enter Street Address: ");
+        streetAddress = input.nextLine();
+
+        System.out.print("Enter City Name: ");
+        city = input.nextLine();
+
+        System.out.print("Enter Zip Code: ");
+        zipCode = input.nextInt();
     }
 }

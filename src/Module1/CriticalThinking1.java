@@ -19,8 +19,7 @@ import java.util.Scanner;
 public class CriticalThinking1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String firstName, lastName, streetAddress, city;
-        int zipCode;
+        String firstName, lastName, streetAddress, city, zipCode;
 
         // Take user input
         System.out.print("Enter First Name: ");
@@ -36,7 +35,7 @@ public class CriticalThinking1 {
         city = input.nextLine();
 
         System.out.print("Enter Zip Code: ");
-        zipCode = input.nextInt();
+        zipCode = input.next();
 
         System.out.println();
 

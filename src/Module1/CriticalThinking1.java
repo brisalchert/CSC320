@@ -37,5 +37,15 @@ public class CriticalThinking1 {
 
         System.out.print("Enter Zip Code: ");
         zipCode = input.nextInt();
+
+        System.out.println();
+
+        // Output personal information:
+        System.out.println("Personal Information:");
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(streetAddress);
+        System.out.println(city);
+        System.out.println(zipCode);
     }
 }

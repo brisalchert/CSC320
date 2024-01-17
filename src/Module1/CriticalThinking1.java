@@ -14,8 +14,14 @@
 
 package Module1;
 
+import java.util.Scanner;
+
 public class CriticalThinking1 {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String firstName, lastName, streetAddress, city;
+        int zipCode;
+
         
     }
 }

@@ -19,17 +19,43 @@ import java.util.Scanner;
 public class CriticalThinking2 {
     public static void printTaxWithholding() {
         Scanner input = new Scanner(System.in);
-        BigDecimal taxWithholding;
+        BigDecimal taxWithholding, income, taxRate;
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
-        int income;
-        float taxRate;
 
         System.out.println("Enter weekly income (to nearest dollar):");
-        income = input.nextInt();
+        income = BigDecimal.valueOf(input.nextInt());
 
-        // Initialize taxWithholding using income with the cents added on
-        taxWithholding = new BigDecimal(income + ".00");
-        System.out.println(taxWithholding);
+        // Check if the income is valid (positive)
+        if (income.intValue() < 0) {
+            System.out.println("Invalid income.");
+
+            return;
+        }
+
+        // Get taxRate based on income
+        taxRate = getTaxRate(income);
+
+        // Set taxWithholding using income and taxRate
+        taxWithholding = income.multiply(taxRate);
+
+        // Return information to the user
+        System.out.println("Your tax withholding is " + currencyFormatter.format(taxWithholding) + ".");
+    }
+
+    public static BigDecimal getTaxRate(BigDecimal income) {
+        if (income.intValue() < 500) {
+            return BigDecimal.valueOf(0.1);
+        }
+
+        if (income.intValue() < 1500) {
+            return BigDecimal.valueOf(0.15);
+        }
+
+        if (income.intValue() < 2500) {
+            return BigDecimal.valueOf(0.2);
+        }
+
+        return BigDecimal.valueOf(0.3);
     }
 
     public static void main(String[] args) {

@@ -17,6 +17,9 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class CriticalThinking2 {
+    /**
+     * Prompts the user for their weekly income and then calculates and prints their tax withholding.
+     */
     public static void printTaxWithholding() {
         Scanner input = new Scanner(System.in);
         BigDecimal taxWithholding, income, taxRate;
@@ -42,6 +45,11 @@ public class CriticalThinking2 {
         System.out.println("Your tax withholding is " + currencyFormatter.format(taxWithholding) + ".");
     }
 
+    /**
+     * Gets the specified tax rate based on the entered income.
+     * @param income the user's income as a BigDecimal
+     * @return the tax rate as a BigDecimal
+     */
     public static BigDecimal getTaxRate(BigDecimal income) {
         if (income.intValue() < 500) {
             return BigDecimal.valueOf(0.1);

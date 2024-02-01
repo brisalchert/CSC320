@@ -12,8 +12,27 @@
 
 package Module2;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Scanner;
+
 public class CriticalThinking2 {
+    public static void printTaxWithholding() {
+        Scanner input = new Scanner(System.in);
+        BigDecimal taxWithholding;
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
+        int income;
+        float taxRate;
+
+        System.out.println("Enter weekly income (to nearest dollar):");
+        income = input.nextInt();
+
+        // Initialize taxWithholding using income with the cents added on
+        taxWithholding = new BigDecimal(income + ".00");
+        System.out.println(taxWithholding);
+    }
+
     public static void main(String[] args) {
-        
+        printTaxWithholding();
     }
 }

@@ -10,7 +10,7 @@
 //  - Incomes greater than/equal to $2500: tax rate 30%
 //----------------------------------------------------------------------------------------------------------------------
 
-package Module2;
+package Module3;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;

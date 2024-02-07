@@ -12,5 +12,47 @@
 
 package Module4;
 
+import java.text.DecimalFormat;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class CriticalThinking3 {
+    public static void getGradeStatistics() {
+        Scanner input = new Scanner(System.in);
+        float average;
+        float sum = 0;
+        int gradeCount = 0;
+        float maximum = Float.MIN_VALUE;
+        float minimum = Float.MAX_VALUE;
+        DecimalFormat twoDecimalPlaces = new DecimalFormat("#.00");
+
+        for (int count = 1; count <= 10; count++) {
+            float currentGrade = -1;
+
+            // Prompt the user for a grade:
+            System.out.print("Enter a floating-point value for a grade: ");
+
+            // Continue prompting the user for a grade until a valid value is entered
+            do {
+                try {
+                    currentGrade = input.nextFloat();
+
+                    // If the grade is negative, request new input
+                    if (currentGrade < 0) {
+                        System.out.print("Invalid input. Please enter again: ");
+                    }
+                }
+                // If the input is not a float, request new input
+                catch (InputMismatchException error) {
+                    System.out.print("Invalid input. Please enter again: ");
+                    // Skip the invalid input
+                    input.next();
+                }
+            } while (currentGrade < 0);
+        }
+    }
+
+    public static void main(String[] args) {
+        getGradeStatistics();
+    }
 }

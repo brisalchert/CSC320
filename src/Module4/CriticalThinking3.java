@@ -17,6 +17,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CriticalThinking3 {
+    /**
+     * Gets ten floating-point grades from the user and outputs the average, maximum, and minimum.
+     */
     public static void getGradeStatistics() {
         Scanner input = new Scanner(System.in);
         float average;

@@ -49,7 +49,34 @@ public class CriticalThinking3 {
                     input.next();
                 }
             } while (currentGrade < 0);
+
+            // Add the current grade to the sum
+            sum += currentGrade;
+
+            gradeCount++;
+
+            // Check if the current grade is the new maximum
+            if (currentGrade > maximum) {
+                maximum = currentGrade;
+            }
+
+            // Check if the current grade is the new minimum
+            if (currentGrade < minimum) {
+                minimum = currentGrade;
+            }
         }
+
+        System.out.println();
+
+        // Calculate the average
+        average = sum / gradeCount;
+
+        // Print the results
+        System.out.println("Grade Statistics:");
+        System.out.println("-----------------");
+        System.out.println("Average: " + twoDecimalPlaces.format(average));
+        System.out.println("Maximum: " + twoDecimalPlaces.format(maximum));
+        System.out.println("Minimum: " + twoDecimalPlaces.format(minimum));
     }
 
     public static void main(String[] args) {

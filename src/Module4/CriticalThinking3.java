@@ -69,6 +69,8 @@ public class CriticalThinking3 {
             }
         }
 
+        input.close();
+
         System.out.println();
 
         // Calculate the average

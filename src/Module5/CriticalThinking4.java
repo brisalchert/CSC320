@@ -76,6 +76,8 @@ public class CriticalThinking4 {
             System.out.print("Enter a day of the week (\"q\" to quit, \"week\" for the whole week): ");
             userInput = input.next();
         }
+
+        input.close();
     }
 
     /**

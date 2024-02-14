@@ -19,6 +19,10 @@ public class CriticalThinking4 {
     public static ArrayList<String> weekdays;
     public static ArrayList<Double> weeklyTemperatures;
 
+    /**
+     * Continually prompts the user for a day to get a temperature reading for. Prints the whole week's temperatures
+     * and the average weekly temperature if "week" is entered. Quits when the user enters "q".
+     */
     public static void getTemperatureReadings() {
         // Initialize the ArrayLists
         initializeArrayLists();
@@ -74,6 +78,10 @@ public class CriticalThinking4 {
         }
     }
 
+    /**
+     * Initializes the ArrayLists "weekdays" and "weeklyTemperatures" with the days of the week and random
+     * temperatures between 20.0 and 50.0 degrees Fahrenheit respectively.
+     */
     public static void initializeArrayLists() {
         Random generator = new Random();
 
@@ -97,11 +105,18 @@ public class CriticalThinking4 {
         }
     }
 
+    /**
+     * Prints the daily temperature for the day at dayIndex in the ArrayList weekdays.
+     * @param dayIndex the index of the day in weekdays
+     */
     private static void getDailyTemperature(int dayIndex) {
         System.out.printf("%-30s", "Temperature for " + weekdays.get(dayIndex) + ":");
         System.out.println(weeklyTemperatures.get(dayIndex) + " degrees Fahrenheit.");
     }
 
+    /**
+     * Prints the average weekly temperature.
+     */
     private static void getAverageWeeklyTemperature() {
         DecimalFormat temperatureFormat = new DecimalFormat("#.0");
         double sum = 0;

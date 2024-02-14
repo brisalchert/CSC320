@@ -12,21 +12,63 @@ package Module5;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class CriticalThinking4 {
-    public static void getTemperatureReadings() {
-        Random generator = new Random();
-        ArrayList<String> weekdays = new ArrayList<>();
-        ArrayList<Double> weeklyTemperatures = new ArrayList<>();
+    public static ArrayList<String> weekdays;
+    public static ArrayList<Double> weeklyTemperatures;
 
-        // Add all the weekdays (lowercase so that input can be case-insensitive by setting it to lowercase)
-        weekdays.add("monday");
-        weekdays.add("tuesday");
-        weekdays.add("wednesday");
-        weekdays.add("thursday");
-        weekdays.add("friday");
-        weekdays.add("saturday");
-        weekdays.add("sunday");
+    public static void getTemperatureReadings() {
+        Scanner input = new Scanner(System.in);
+        String userInput;
+
+        // Prompt the user for a day of the week
+        System.out.print("Enter a day of the week (\"q\" to quit, \"week\" for the whole week): ");
+        userInput = input.next();
+
+        // Repeat until the user enters the sentinel value to quit
+        while (!userInput.equals("q")) {
+            int dayIndex = weekdays.indexOf(userInput);
+
+            // If the input was invalid, inform the user and go to the next iteration
+            if (dayIndex == -1) {
+                System.out.println("Invalid input.");
+                System.out.println();
+                System.out.print("Enter a day of the week (\"q\" to quit, \"week\" for the whole week): ");
+                userInput = input.next();
+                continue;
+            }
+
+            // Get the temperature for the given day
+            getDailyTemperature(dayIndex);
+            System.out.println();
+
+            // Prompt the user for new input
+            System.out.print("Enter a day of the week (\"q\" to quit, \"week\" for the whole week): ");
+            userInput = input.next();
+        }
+    }
+
+    private static void getDailyTemperature(int dayIndex) {
+        System.out.println("Temperature for " + weekdays.get(dayIndex) + ": "
+                           + weeklyTemperatures.get(dayIndex) + " degrees Fahrenheit.");
+    }
+
+    public static void initializeArrayLists() {
+        Random generator = new Random();
+
+        // Initialize ArrayLists
+        weekdays = new ArrayList<>();
+        weeklyTemperatures = new ArrayList<>();
+
+        // Add all the weekdays
+        weekdays.add("Monday");
+        weekdays.add("Tuesday");
+        weekdays.add("Wednesday");
+        weekdays.add("Thursday");
+        weekdays.add("Friday");
+        weekdays.add("Saturday");
+        weekdays.add("Sunday");
 
         // Add random weekly temperatures in the range 20.0 - 50.0 Fahrenheit
         for (int index = 0; index < weekdays.size(); index++) {
@@ -36,6 +78,7 @@ public class CriticalThinking4 {
     }
 
     public static void main(String[] args) {
+        initializeArrayLists();
         getTemperatureReadings();
     }
 }

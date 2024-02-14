@@ -10,6 +10,7 @@
 
 package Module5;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -31,6 +32,26 @@ public class CriticalThinking4 {
 
         // Repeat until the user enters the sentinel value to quit
         while (!userInput.equals("q")) {
+            // Check if the user requested the whole week to be printed
+            if (userInput.equals("week")) {
+                System.out.println("Weekly Temperatures:");
+                System.out.println("------------------------------------------------------------");
+
+                for (int dayIndex = 0; dayIndex < weekdays.size(); dayIndex++) {
+                    getDailyTemperature(dayIndex);
+                }
+
+                System.out.println();
+                getAverageWeeklyTemperature();
+                System.out.println();
+
+                // Prompt the user for new input
+                System.out.print("Enter a day of the week (\"q\" to quit, \"week\" for the whole week): ");
+                userInput = input.next();
+
+                continue;
+            }
+
             int dayIndex = weekdays.indexOf(userInput);
 
             // If the input was invalid, inform the user and go to the next iteration
@@ -39,6 +60,7 @@ public class CriticalThinking4 {
                 System.out.println();
                 System.out.print("Enter a day of the week (\"q\" to quit, \"week\" for the whole week): ");
                 userInput = input.next();
+
                 continue;
             }
 
@@ -76,18 +98,23 @@ public class CriticalThinking4 {
     }
 
     private static void getDailyTemperature(int dayIndex) {
-        System.out.println("Temperature for " + weekdays.get(dayIndex) + ": "
-                           + weeklyTemperatures.get(dayIndex) + " degrees Fahrenheit.");
+        System.out.printf("%-30s", "Temperature for " + weekdays.get(dayIndex) + ":");
+        System.out.println(weeklyTemperatures.get(dayIndex) + " degrees Fahrenheit.");
     }
 
-    private static double getAverageWeeklyTemperature() {
+    private static void getAverageWeeklyTemperature() {
+        DecimalFormat temperatureFormat = new DecimalFormat("#.0");
         double sum = 0;
+        double average;
 
         for (double temperature : weeklyTemperatures) {
             sum += temperature;
         }
 
-        return (sum / weeklyTemperatures.size());
+        average = (sum / weeklyTemperatures.size());
+
+        System.out.printf("%-30s", "Average weekly temperature:");
+        System.out.println(temperatureFormat.format(average) + " degrees Fahrenheit.");
     }
 
     public static void main(String[] args) {

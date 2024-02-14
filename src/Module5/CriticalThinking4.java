@@ -19,6 +19,9 @@ public class CriticalThinking4 {
     public static ArrayList<Double> weeklyTemperatures;
 
     public static void getTemperatureReadings() {
+        // Initialize the ArrayLists
+        initializeArrayLists();
+
         Scanner input = new Scanner(System.in);
         String userInput;
 
@@ -49,11 +52,6 @@ public class CriticalThinking4 {
         }
     }
 
-    private static void getDailyTemperature(int dayIndex) {
-        System.out.println("Temperature for " + weekdays.get(dayIndex) + ": "
-                           + weeklyTemperatures.get(dayIndex) + " degrees Fahrenheit.");
-    }
-
     public static void initializeArrayLists() {
         Random generator = new Random();
 
@@ -77,8 +75,22 @@ public class CriticalThinking4 {
         }
     }
 
+    private static void getDailyTemperature(int dayIndex) {
+        System.out.println("Temperature for " + weekdays.get(dayIndex) + ": "
+                           + weeklyTemperatures.get(dayIndex) + " degrees Fahrenheit.");
+    }
+
+    private static double getAverageWeeklyTemperature() {
+        double sum = 0;
+
+        for (double temperature : weeklyTemperatures) {
+            sum += temperature;
+        }
+
+        return (sum / weeklyTemperatures.size());
+    }
+
     public static void main(String[] args) {
-        initializeArrayLists();
         getTemperatureReadings();
     }
 }

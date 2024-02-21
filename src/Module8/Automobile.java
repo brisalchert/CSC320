@@ -1,6 +1,7 @@
 package Module8;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -21,32 +22,61 @@ public class Automobile {
         this.mileage = mileage;
     }
 
-    public static String addVehicle(ArrayList<Automobile> vehicleList, String make, String model, String color,
-                             int year, int mileage) {
-        // Create new Automobile object
-        Automobile newVehicle = new Automobile(make, model, color, year, mileage);
+    public static String addVehicle(HashMap<String, Automobile> vehicleInventory) {
+        Scanner input = new Scanner(System.in);
+        String name, make, model, color;
+        int year, mileage;
+
+        try {
+            // Prompt the user for info for new vehicle
+            System.out.print("Enter a name for the vehicle: ");
+            name = input.next();
+
+            System.out.print("Enter a make: ");
+            make = input.next();
+
+            System.out.print("Enter a model: ");
+            model = input.next();
+
+            System.out.print("Enter a color: ");
+            color = input.next();
+
+            System.out.print("Enter a year: ");
+            year = input.nextInt();
+
+            System.out.print("Enter mileage: ");
+            mileage = input.nextInt();
+        }
+        catch (InputMismatchException inputError) {
+            return "Could not add vehicle -- invalid input.";
+        }
+
+        // Create new Automobile object with new details
+        Automobile automobile = new Automobile(make, model, color, year, mileage);
 
         // Add the vehicle to the list
-        vehicleList.add(newVehicle);
+        vehicleInventory.put(name, automobile);
 
         return "Vehicle successfully added to the list.";
     }
 
-    public static String removeVehicle(ArrayList<Automobile> vehicleList, String make, String model,
-                                String color, int year) {
-        if (vehicleList.remove(getVehicleFromList(vehicleList, make, model, color, year))) {
-            return "Vehicle successfully removed from the list.";
+    public static String removeVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
+        // Assign a reference to the automobile that gets removed (in case it is null)
+        Automobile removedVehicle = vehicleInventory.remove(name);
+
+        // Check if the vehicle was not present in the inventory
+        if (removedVehicle == null) {
+            return "Cannot remove vehicle -- details do not match any vehicle in the list.";
         }
 
-        return "Cannot remove vehicle -- details do not match any vehicle in the list.";
+        return "Vehicle successfully removed from inventory";
     }
 
-    public static String updateVehicle(ArrayList<Automobile> vehicleList, String make, String model,
-                                String color, int year) {
+    public static String updateVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
         Scanner input = new Scanner(System.in);
 
         // Get a reference to the requested vehicle
-        Automobile vehicleToUpdate = getVehicleFromList(vehicleList, make, model, color, year);
+        Automobile vehicleToUpdate = vehicleInventory.get(name);
 
         // Check that the vehicle exists in the list
         if (vehicleToUpdate == null) {
@@ -77,14 +107,15 @@ public class Automobile {
         }
     }
 
-    public static String[] listVehicleInfo(ArrayList<Automobile> vehicleList, String make, String model,
-                                    String color, int year) {
+    public static String[] listVehicleInfo(HashMap<String, Automobile> vehicleInventory, String name) {
         // Initialize vehicleInfo with room for 5 values
         String[] vehicleInfo = new String[5];
 
         // Get the vehicle from the list
-        Automobile vehicle = getVehicleFromList(vehicleList, make, model, color, year);
+        Automobile vehicle = vehicleInventory.get(name);
 
+        // Try to assign vehicle information to the array, or output error message if the specified vehicle
+        // is not present in the inventory
         try {
             vehicleInfo[0] = vehicle.getMake();
             vehicleInfo[1] = vehicle.getModel();
@@ -97,20 +128,6 @@ public class Automobile {
         catch (NullPointerException nullError) {
             return new String[]{"Invalid input -- no such vehicle in list"};
         }
-    }
-
-    public static Automobile getVehicleFromList(ArrayList<Automobile> vehicleList, String make, String model,
-                                         String color, int year) {
-        // Check each automobile in the list to see if it matches the input
-        for (Automobile vehicle : vehicleList) {
-            if (vehicle.getMake().equals(make) && vehicle.getModel().equals(model)
-                && vehicle.getColor().equals(color) && vehicle.getYear() == year) {
-                return vehicle;
-            }
-        }
-
-        // If no vehicle in the list matches the input, return null
-        return null;
     }
 
     public String getMake() {

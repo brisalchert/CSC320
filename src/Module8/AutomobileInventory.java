@@ -9,7 +9,6 @@ public class AutomobileInventory {
         HashMap<String, Automobile> automobileInventory = new HashMap<>();
         Scanner input = new Scanner(System.in);
         String returnMessage, firstVehicleName, secondVehicleName;
-        String[] firstVehicleInfo, secondVehicleInfo;
         Automobile firstVehicle;
 
         // Create a vehicle using the parameterized constructor
@@ -20,16 +19,7 @@ public class AutomobileInventory {
         Automobile.addVehicle(automobileInventory, firstVehicle, firstVehicleName);
 
         // List the vehicle values
-        firstVehicleInfo = Automobile.listVehicleInfo(automobileInventory, firstVehicleName);
-
-        System.out.println("Vehicle Info for " + firstVehicleName + ":");
-        System.out.println("------------------------------");
-
-        for (String value : firstVehicleInfo) {
-            System.out.println("\t" + value);
-        }
-
-        System.out.println();
+        printVehicleInfo(automobileInventory, firstVehicleName);
 
         // Remove the vehicle and print the return value
         returnMessage = Automobile.removeVehicle(automobileInventory, firstVehicleName);
@@ -45,12 +35,20 @@ public class AutomobileInventory {
         System.out.println();
 
         // Print new vehicle information
-        secondVehicleInfo = Automobile.listVehicleInfo(automobileInventory, secondVehicleName);
+        printVehicleInfo(automobileInventory, secondVehicleName);
 
-        System.out.println("Vehicle Info for " + secondVehicleName + ":");
+        // Update second vehicle's info
+        returnMessage = Automobile.updateVehicle(automobileInventory, secondVehicleName);
+        System.out.println(returnMessage);
+    }
+
+    public static void printVehicleInfo(HashMap<String, Automobile> automobileInventory, String name) {
+        String[] vehicleInfo = Automobile.listVehicleInfo(automobileInventory, name);
+
+        System.out.println("Vehicle Info for " + name + ":");
         System.out.println("------------------------------");
 
-        for (String value : secondVehicleInfo) {
+        for (String value : vehicleInfo) {
             System.out.println("\t" + value);
         }
 

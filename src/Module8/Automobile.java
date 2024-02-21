@@ -118,11 +118,11 @@ public class Automobile {
         // Try to assign vehicle information to the array, or output error message if the specified vehicle
         // is not present in the inventory
         try {
-            vehicleInfo[0] = vehicle.getMake();
-            vehicleInfo[1] = vehicle.getModel();
-            vehicleInfo[2] = vehicle.getColor();
-            vehicleInfo[3] = Integer.toString(vehicle.getYear());
-            vehicleInfo[4] = Integer.toString(vehicle.getMileage());
+            vehicleInfo[0] = "Make: " + vehicle.getMake();
+            vehicleInfo[1] = "Model: " + vehicle.getModel();
+            vehicleInfo[2] = "Color: " + vehicle.getColor();
+            vehicleInfo[3] = "Year: " + Integer.toString(vehicle.getYear());
+            vehicleInfo[4] = "Mileage: " + Integer.toString(vehicle.getMileage()) + " miles";
 
             return vehicleInfo;
         }

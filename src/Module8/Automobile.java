@@ -86,6 +86,8 @@ public class Automobile {
             return "Cannot update vehicle -- details do not match any vehicle in the list";
         }
 
+        System.out.println("Updating info for " + name + ":");
+
         // Attempt to update the vehicle with new attributes from the user
         try {
             System.out.print("Enter a new make: ");

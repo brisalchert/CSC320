@@ -57,15 +57,15 @@ public class Automobile {
         return "Vehicle successfully added to the list.";
     }
 
-    public static String addVehicle(HashMap<String, Automobile> vehicleInventory, Automobile automobile, String name) {
-        vehicleInventory.put(name, automobile);
+    public static String addVehicle(HashMap<String, Automobile> automobileInventory, Automobile automobile, String name) {
+        automobileInventory.put(name, automobile);
 
         return "Vehicle successfully added to the list";
     }
 
-    public static String removeVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
+    public static String removeVehicle(HashMap<String, Automobile> automobileInventory, String name) {
         // Assign a reference to the automobile that gets removed (in case it is null)
-        Automobile removedVehicle = vehicleInventory.remove(name);
+        Automobile removedVehicle = automobileInventory.remove(name);
 
         // Check if the vehicle was not present in the inventory
         if (removedVehicle == null) {
@@ -75,11 +75,11 @@ public class Automobile {
         return "Vehicle successfully removed from inventory";
     }
 
-    public static String updateVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
+    public static String updateVehicle(HashMap<String, Automobile> automobileInventory, String name) {
         Scanner input = new Scanner(System.in);
 
         // Get a reference to the requested vehicle
-        Automobile vehicleToUpdate = vehicleInventory.get(name);
+        Automobile vehicleToUpdate = automobileInventory.get(name);
 
         // Check that the vehicle exists in the list
         if (vehicleToUpdate == null) {
@@ -112,12 +112,12 @@ public class Automobile {
         }
     }
 
-    public static String[] listVehicleInfo(HashMap<String, Automobile> vehicleInventory, String name) {
+    public static String[] listVehicleInfo(HashMap<String, Automobile> automobileInventory, String name) {
         // Initialize vehicleInfo with room for 5 values
         String[] vehicleInfo = new String[5];
 
         // Get the vehicle from the list
-        Automobile vehicle = vehicleInventory.get(name);
+        Automobile vehicle = automobileInventory.get(name);
 
         // Try to assign vehicle information to the array, or output error message if the specified vehicle
         // is not present in the inventory
@@ -125,8 +125,8 @@ public class Automobile {
             vehicleInfo[0] = "Make: " + vehicle.getMake();
             vehicleInfo[1] = "Model: " + vehicle.getModel();
             vehicleInfo[2] = "Color: " + vehicle.getColor();
-            vehicleInfo[3] = "Year: " + Integer.toString(vehicle.getYear());
-            vehicleInfo[4] = "Mileage: " + Integer.toString(vehicle.getMileage()) + " miles";
+            vehicleInfo[3] = "Year: " + (vehicle.getYear());
+            vehicleInfo[4] = "Mileage: " + (vehicle.getMileage()) + " miles";
 
             return vehicleInfo;
         }

@@ -1,6 +1,7 @@
 package Module8;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Automobile {
@@ -38,6 +39,42 @@ public class Automobile {
         }
 
         return "Cannot remove vehicle -- details do not match any vehicle in the list.";
+    }
+
+    public String updateVehicle(ArrayList<Automobile> vehicleList, String make, String model,
+                                String color, int year) {
+        Scanner input = new Scanner(System.in);
+
+        // Get a reference to the requested vehicle
+        Automobile vehicleToUpdate = getVehicleFromList(vehicleList, make, model, color, year);
+
+        // Check that the vehicle exists in the list
+        if (vehicleToUpdate == null) {
+            return "Cannot update vehicle -- details do not match any vehicle in the list";
+        }
+
+        // Attempt to update the vehicle with new attributes from the user
+        try {
+            System.out.print("Enter a new make: ");
+            vehicleToUpdate.make = input.next();
+
+            System.out.print("Enter a new model: ");
+            vehicleToUpdate.model = input.next();
+
+            System.out.print("Enter a new color: ");
+            vehicleToUpdate.color = input.next();
+
+            System.out.print("Enter a new year: ");
+            vehicleToUpdate.year = input.nextInt();
+
+            System.out.print("Enter a new mileage: ");
+            vehicleToUpdate.mileage = input.nextInt();
+
+            return "Vehicle successfully updated.";
+        }
+        catch (InputMismatchException inputError) {
+            return "Cannot update vehicle -- invalid input for new information.";
+        }
     }
 
     public Automobile getVehicleFromList(ArrayList<Automobile> vehicleList, String make, String model,

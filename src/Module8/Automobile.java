@@ -22,16 +22,13 @@ public class Automobile {
         this.mileage = mileage;
     }
 
-    public static String addVehicle(HashMap<String, Automobile> vehicleInventory) {
+    public static String addVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
         Scanner input = new Scanner(System.in);
-        String name, make, model, color;
+        String make, model, color;
         int year, mileage;
 
         try {
             // Prompt the user for info for new vehicle
-            System.out.print("Enter a name for the vehicle: ");
-            name = input.next();
-
             System.out.print("Enter a make: ");
             make = input.next();
 
@@ -138,6 +135,7 @@ public class Automobile {
         Scanner input = new Scanner(System.in);
         String name;
 
+        System.out.print("Enter a vehicle name: ");
         name = input.nextLine();
 
         input.close();

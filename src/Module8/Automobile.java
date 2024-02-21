@@ -77,6 +77,28 @@ public class Automobile {
         }
     }
 
+    public String[] listVehicleInfo(ArrayList<Automobile> vehicleList, String make, String model,
+                                    String color, int year) {
+        // Initialize vehicleInfo with room for 5 values
+        String[] vehicleInfo = new String[5];
+
+        // Get the vehicle from the list
+        Automobile vehicle = getVehicleFromList(vehicleList, make, model, color, year);
+
+        try {
+            vehicleInfo[0] = vehicle.getMake();
+            vehicleInfo[1] = vehicle.getModel();
+            vehicleInfo[2] = vehicle.getColor();
+            vehicleInfo[3] = Integer.toString(vehicle.getYear());
+            vehicleInfo[4] = Integer.toString(vehicle.getMileage());
+
+            return vehicleInfo;
+        }
+        catch (NullPointerException nullError) {
+            return new String[]{"Invalid input -- no such vehicle in list"};
+        }
+    }
+
     public Automobile getVehicleFromList(ArrayList<Automobile> vehicleList, String make, String model,
                                          String color, int year) {
         // Check each automobile in the list to see if it matches the input

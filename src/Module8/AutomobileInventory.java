@@ -40,6 +40,11 @@ public class AutomobileInventory {
         // Update second vehicle's info
         returnMessage = Automobile.updateVehicle(automobileInventory, secondVehicleName);
         System.out.println(returnMessage);
+
+        System.out.println();
+
+        // Print updated vehicle information
+        printVehicleInfo(automobileInventory, secondVehicleName);
     }
 
     public static void printVehicleInfo(HashMap<String, Automobile> automobileInventory, String name) {

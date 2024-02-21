@@ -43,8 +43,6 @@ public class Automobile {
 
             System.out.print("Enter mileage: ");
             mileage = input.nextInt();
-
-            input.close();
         }
         catch (InputMismatchException inputError) {
             return "Could not add vehicle -- invalid input.";
@@ -99,8 +97,6 @@ public class Automobile {
             System.out.print("Enter a new mileage: ");
             vehicleToUpdate.mileage = input.nextInt();
 
-            input.close();
-
             return "Vehicle successfully updated.";
         }
         catch (InputMismatchException inputError) {
@@ -137,8 +133,6 @@ public class Automobile {
 
         System.out.print("Enter a vehicle name: ");
         name = input.nextLine();
-
-        input.close();
 
         return name;
     }

@@ -21,7 +21,7 @@ public class Automobile {
         this.mileage = mileage;
     }
 
-    public String addVehicle(ArrayList<Automobile> vehicleList, String make, String model, String color,
+    public static String addVehicle(ArrayList<Automobile> vehicleList, String make, String model, String color,
                              int year, int mileage) {
         // Create new Automobile object
         Automobile newVehicle = new Automobile(make, model, color, year, mileage);
@@ -32,7 +32,7 @@ public class Automobile {
         return "Vehicle successfully added to the list.";
     }
 
-    public String removeVehicle(ArrayList<Automobile> vehicleList, String make, String model,
+    public static String removeVehicle(ArrayList<Automobile> vehicleList, String make, String model,
                                 String color, int year) {
         if (vehicleList.remove(getVehicleFromList(vehicleList, make, model, color, year))) {
             return "Vehicle successfully removed from the list.";
@@ -41,7 +41,7 @@ public class Automobile {
         return "Cannot remove vehicle -- details do not match any vehicle in the list.";
     }
 
-    public String updateVehicle(ArrayList<Automobile> vehicleList, String make, String model,
+    public static String updateVehicle(ArrayList<Automobile> vehicleList, String make, String model,
                                 String color, int year) {
         Scanner input = new Scanner(System.in);
 
@@ -77,7 +77,7 @@ public class Automobile {
         }
     }
 
-    public String[] listVehicleInfo(ArrayList<Automobile> vehicleList, String make, String model,
+    public static String[] listVehicleInfo(ArrayList<Automobile> vehicleList, String make, String model,
                                     String color, int year) {
         // Initialize vehicleInfo with room for 5 values
         String[] vehicleInfo = new String[5];
@@ -99,7 +99,7 @@ public class Automobile {
         }
     }
 
-    public Automobile getVehicleFromList(ArrayList<Automobile> vehicleList, String make, String model,
+    public static Automobile getVehicleFromList(ArrayList<Automobile> vehicleList, String make, String model,
                                          String color, int year) {
         // Check each automobile in the list to see if it matches the input
         for (Automobile vehicle : vehicleList) {

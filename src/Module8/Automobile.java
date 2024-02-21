@@ -46,6 +46,8 @@ public class Automobile {
 
             System.out.print("Enter mileage: ");
             mileage = input.nextInt();
+
+            input.close();
         }
         catch (InputMismatchException inputError) {
             return "Could not add vehicle -- invalid input.";
@@ -100,6 +102,8 @@ public class Automobile {
             System.out.print("Enter a new mileage: ");
             vehicleToUpdate.mileage = input.nextInt();
 
+            input.close();
+
             return "Vehicle successfully updated.";
         }
         catch (InputMismatchException inputError) {
@@ -128,6 +132,17 @@ public class Automobile {
         catch (NullPointerException nullError) {
             return new String[]{"Invalid input -- no such vehicle in list"};
         }
+    }
+
+    public static String getNextVehicleName() {
+        Scanner input = new Scanner(System.in);
+        String name;
+
+        name = input.nextLine();
+
+        input.close();
+
+        return name;
     }
 
     public String getMake() {

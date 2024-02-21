@@ -57,6 +57,12 @@ public class Automobile {
         return "Vehicle successfully added to the list.";
     }
 
+    public static String addVehicle(HashMap<String, Automobile> vehicleInventory, Automobile automobile, String name) {
+        vehicleInventory.put(name, automobile);
+
+        return "Vehicle successfully added to the list";
+    }
+
     public static String removeVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
         // Assign a reference to the automobile that gets removed (in case it is null)
         Automobile removedVehicle = vehicleInventory.remove(name);

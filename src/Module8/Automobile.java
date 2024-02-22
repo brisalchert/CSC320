@@ -89,7 +89,8 @@ public class Automobile {
      * @param name the name for the vehicle in the HashMap
      * @return a message indicating success or failure
      */
-    public static String addVehicle(HashMap<String, Automobile> automobileInventory, Automobile automobile, String name) {
+    public static String addVehicle(HashMap<String, Automobile> automobileInventory, Automobile automobile,
+                                    String name) {
         automobileInventory.put(name, automobile);
 
         return "Vehicle successfully added to the list";

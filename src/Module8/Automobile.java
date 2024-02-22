@@ -1,3 +1,10 @@
+//----------------------------------------------------------------------------------------------------------------------
+//  Automobile.java
+//
+//  A class for representing a generic vehicle in Java. Includes methods for modifying a HashMap inventory of
+//  Automobile objects.
+//----------------------------------------------------------------------------------------------------------------------
+
 package Module8;
 
 import java.util.HashMap;
@@ -22,7 +29,7 @@ public class Automobile {
      * Parameterized Constructor: Creates a new Automobile object with parameters for each field
      * @param make the make of the vehicle
      * @param model the model of the vehicle
-     * @param color the color of th vehicle
+     * @param color the color of the vehicle
      * @param year the year of the vehicle
      * @param mileage the current mileage of the vehicle
      */

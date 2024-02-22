@@ -1,3 +1,10 @@
+//----------------------------------------------------------------------------------------------------------------------
+//  AutomobileInventory.java
+//
+//  Driver class for Automobile.java. We create a HashMap automobile inventory and execute various methods from the
+//  Automobile class in order to verify their functionality.
+//----------------------------------------------------------------------------------------------------------------------
+
 package Module8;
 
 import java.util.HashMap;

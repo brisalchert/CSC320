@@ -12,10 +12,21 @@ public class Automobile {
     private int year;
     private int mileage;
 
+    /**
+     * Default constructor: Creates an Automobile object with no parameters
+     */
     public Automobile() {
         super();
     }
 
+    /**
+     * Parameterized Constructor: Creates a new Automobile object with parameters for each field
+     * @param make the make of the vehicle
+     * @param model the model of the vehicle
+     * @param color the color of th vehicle
+     * @param year the year of the vehicle
+     * @param mileage the current mileage of the vehicle
+     */
     public Automobile(String make, String model, String color, int year, int mileage) {
         this.make = make;
         this.model = model;
@@ -24,6 +35,12 @@ public class Automobile {
         this.mileage = mileage;
     }
 
+    /**
+     * Adds a vehicle to a HashMap inventory, creating the vehicle in the process
+     * @param vehicleInventory the HashMap of vehicles
+     * @param name the name for the new vehicle in the HashMap
+     * @return a message indicating success or failure
+     */
     public static String addVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
         Scanner input = new Scanner(System.in);
         String make, model, color;
@@ -59,12 +76,25 @@ public class Automobile {
         return "Vehicle successfully added to the list.";
     }
 
+    /**
+     * Adds a vehicle to a HashMap inventory, using an existing Automobile object
+     * @param automobileInventory the HashMap of vehicles
+     * @param automobile the Automobile object
+     * @param name the name for the vehicle in the HashMap
+     * @return a message indicating success or failure
+     */
     public static String addVehicle(HashMap<String, Automobile> automobileInventory, Automobile automobile, String name) {
         automobileInventory.put(name, automobile);
 
         return "Vehicle successfully added to the list";
     }
 
+    /**
+     * Removes a vehicle from a HashMap inventory, if it is present
+     * @param automobileInventory the HashMap of vehicles
+     * @param name the name of the vehicle to remove from the HashMap
+     * @return a message indicating success or failure
+     */
     public static String removeVehicle(HashMap<String, Automobile> automobileInventory, String name) {
         // Assign a reference to the automobile that gets removed (in case it is null)
         Automobile removedVehicle = automobileInventory.remove(name);
@@ -77,6 +107,12 @@ public class Automobile {
         return "Vehicle successfully removed from inventory";
     }
 
+    /**
+     * Updates the details of a pre-existing vehicle in a HashMap inventory, if it is present
+     * @param automobileInventory the HashMap of vehicles
+     * @param name the name of the vehicle to update in the HashMap
+     * @return a message indicating success or failure
+     */
     public static String updateVehicle(HashMap<String, Automobile> automobileInventory, String name) {
         Scanner input = new Scanner(System.in);
 
@@ -114,6 +150,12 @@ public class Automobile {
         }
     }
 
+    /**
+     * Provides a String array of all vehicle information for the specified vehicle in a HashMap inventory
+     * @param automobileInventory the HashMap of vehicles
+     * @param name the name of the vehicle in the HashMap
+     * @return the array of vehicle information, or a single-element array with a message indicating failure
+     */
     public static String[] listVehicleInfo(HashMap<String, Automobile> automobileInventory, String name) {
         // Initialize vehicleInfo with room for 5 values
         String[] vehicleInfo = new String[5];
@@ -137,6 +179,10 @@ public class Automobile {
         }
     }
 
+    /**
+     * Prompts the user for the next vehicle name for use in method calls
+     * @return the name of the vehicle
+     */
     public static String getNextVehicleName() {
         Scanner input = new Scanner(System.in);
         String name;
@@ -147,22 +193,42 @@ public class Automobile {
         return name;
     }
 
+    /**
+     * Accessor method for the Automobile's make
+     * @return the make of the Automobile
+     */
     public String getMake() {
         return this.make;
     }
 
+    /**
+     * Accessor method for the Automobile's model
+     * @return the model of the Automobile
+     */
     public String getModel() {
         return this.model;
     }
 
+    /**
+     * Accessor method for the Automobile's color
+     * @return the color of the Automobile
+     */
     public String getColor() {
         return this.color;
     }
 
+    /**
+     * Accessor method for the Automobile's year
+     * @return the year of the Automobile
+     */
     public int getYear() {
         return this.year;
     }
 
+    /**
+     * Accessor method for the Automobile's current mileage
+     * @return the current mileage of the Automobile
+     */
     public int getMileage() {
         return this.mileage;
     }

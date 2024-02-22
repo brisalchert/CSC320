@@ -12,7 +12,9 @@ public class Automobile {
     private int year;
     private int mileage;
 
-    public Automobile() {}
+    public Automobile() {
+        super();
+    }
 
     public Automobile(String make, String model, String color, int year, int mileage) {
         this.make = make;

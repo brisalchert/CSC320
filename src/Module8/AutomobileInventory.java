@@ -14,7 +14,6 @@ public class AutomobileInventory {
     public static void main(String[] args) {
         // Initialize automobile inventory
         HashMap<String, Automobile> automobileInventory = new HashMap<>();
-        Scanner input = new Scanner(System.in);
         String returnMessage, firstVehicleName, secondVehicleName;
         Automobile firstVehicle;
 

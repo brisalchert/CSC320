@@ -19,10 +19,14 @@ public class Automobile {
     private int mileage;
 
     /**
-     * Default constructor: Creates an Automobile object with no parameters
+     * Default constructor: Creates an Automobile object with no parameters, setting fields to default values
      */
     public Automobile() {
-        super();
+        this.make = "none";
+        this.model = "none";
+        this.color = "none";
+        this.year = 0;
+        this.mileage = 0;
     }
 
     /**

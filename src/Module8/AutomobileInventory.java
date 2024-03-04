@@ -8,7 +8,6 @@
 package Module8;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class AutomobileInventory {
     public static void main(String[] args) {

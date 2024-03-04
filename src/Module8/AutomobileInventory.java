@@ -50,6 +50,12 @@ public class AutomobileInventory {
 
         // Print updated vehicle information
         Automobile.printVehicleInfo(automobileInventory, secondVehicleName);
+
+        // Print final inventory
+        Automobile.printInventory(automobileInventory);
+
+        // Ask the user if they want to print the results to a file
+        Automobile.printToFile(automobileInventory);
     }
 
 

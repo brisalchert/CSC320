@@ -291,7 +291,7 @@ public class Automobile {
         switch (userInput) {
             case "Y":
                 try {
-                    // Create a new file a PrintStream
+                    // Create a new file as a PrintStream
                     PrintStream fileStream = new PrintStream("C:/Temp/Autos.txt");
 
                     // Save a reference of the console output stream

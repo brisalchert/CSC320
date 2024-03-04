@@ -47,11 +47,11 @@ public class Automobile {
 
     /**
      * Adds a vehicle to a HashMap inventory, creating the vehicle in the process
-     * @param vehicleInventory the HashMap of vehicles
+     * @param automobileInventory the HashMap of vehicles
      * @param name the name for the new vehicle in the HashMap
      * @return a message indicating success or failure
      */
-    public static String addVehicle(HashMap<String, Automobile> vehicleInventory, String name) {
+    public static String addVehicle(HashMap<String, Automobile> automobileInventory, String name) {
         Scanner input = new Scanner(System.in);
         String make, model, color;
         int year, mileage;
@@ -83,7 +83,7 @@ public class Automobile {
         Automobile automobile = new Automobile(make, model, color, year, mileage);
 
         // Add the vehicle to the list
-        vehicleInventory.put(name, automobile);
+        automobileInventory.put(name, automobile);
 
         System.out.println();
 

@@ -127,6 +127,13 @@ public class Automobile {
      * @return a message indicating success or failure
      */
     public static String removeVehicle(HashMap<String, Automobile> automobileInventory, String name) {
+        // Check if the inventory is empty
+        if (automobileInventory.isEmpty()) {
+            System.out.println();
+
+            return "Cannot remove vehicle -- inventory is empty.";
+        }
+
         // Assign a reference to the automobile that gets removed (in case it is null)
         Automobile removedVehicle = automobileInventory.remove(name);
 

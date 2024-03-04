@@ -57,6 +57,4 @@ public class AutomobileInventory {
         // Ask the user if they want to print the results to a file
         Automobile.printToFile(automobileInventory);
     }
-
-
 }

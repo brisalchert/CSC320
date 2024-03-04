@@ -74,6 +74,8 @@ public class Automobile {
             mileage = input.nextInt();
         }
         catch (InputMismatchException inputError) {
+            System.out.println();
+
             return "Could not add vehicle -- invalid input.";
         }
 
@@ -82,6 +84,8 @@ public class Automobile {
 
         // Add the vehicle to the list
         vehicleInventory.put(name, automobile);
+
+        System.out.println();
 
         return "Vehicle successfully added to the list.";
     }
@@ -96,6 +100,8 @@ public class Automobile {
     public static String addVehicle(HashMap<String, Automobile> automobileInventory, Automobile automobile,
                                     String name) {
         automobileInventory.put(name, automobile);
+
+        System.out.println();
 
         return "Vehicle successfully added to the list";
     }
@@ -112,6 +118,8 @@ public class Automobile {
 
         // Check if the vehicle was not present in the inventory
         if (removedVehicle == null) {
+            System.out.println();
+
             return "Cannot remove vehicle -- details do not match any vehicle in the list.";
         }
 
@@ -132,6 +140,8 @@ public class Automobile {
 
         // Check that the vehicle exists in the list
         if (vehicleToUpdate == null) {
+            System.out.println();
+
             return "Cannot update vehicle -- details do not match any vehicle in the list";
         }
 
@@ -154,9 +164,13 @@ public class Automobile {
             System.out.print("Enter a new mileage: ");
             vehicleToUpdate.mileage = input.nextInt();
 
+            System.out.println();
+
             return "Vehicle successfully updated.";
         }
         catch (InputMismatchException inputError) {
+            System.out.println();
+
             return "Cannot update vehicle -- invalid input for new information.";
         }
     }

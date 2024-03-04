@@ -205,9 +205,9 @@ public class Automobile {
     }
 
     /**
-     * Formats and prints the vehicle information from the listVehicleInfo method
-     * @param automobileInventory
-     * @param name
+     * Formats and prints the vehicle information from the listVehicleInfo method for a vehicle in a HashMap Inventory
+     * @param automobileInventory the HashMap of vehicles
+     * @param name the name of the vehicle in the HashMap
      */
     public static void printVehicleInfo(HashMap<String, Automobile> automobileInventory, String name) {
         String[] vehicleInfo = listVehicleInfo(automobileInventory, name);

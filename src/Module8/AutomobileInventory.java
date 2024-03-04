@@ -25,7 +25,7 @@ public class AutomobileInventory {
         Automobile.addVehicle(automobileInventory, firstVehicle, firstVehicleName);
 
         // List the vehicle values
-        printVehicleInfo(automobileInventory, firstVehicleName);
+        Automobile.printVehicleInfo(automobileInventory, firstVehicleName);
 
         // Remove the vehicle and print the return value
         returnMessage = Automobile.removeVehicle(automobileInventory, firstVehicleName);
@@ -41,7 +41,7 @@ public class AutomobileInventory {
         System.out.println();
 
         // Print new vehicle information
-        printVehicleInfo(automobileInventory, secondVehicleName);
+        Automobile.printVehicleInfo(automobileInventory, secondVehicleName);
 
         // Update second vehicle's info
         returnMessage = Automobile.updateVehicle(automobileInventory, secondVehicleName);
@@ -50,19 +50,8 @@ public class AutomobileInventory {
         System.out.println();
 
         // Print updated vehicle information
-        printVehicleInfo(automobileInventory, secondVehicleName);
+        Automobile.printVehicleInfo(automobileInventory, secondVehicleName);
     }
 
-    public static void printVehicleInfo(HashMap<String, Automobile> automobileInventory, String name) {
-        String[] vehicleInfo = Automobile.listVehicleInfo(automobileInventory, name);
 
-        System.out.println("Vehicle Info for " + name + ":");
-        System.out.println("------------------------------");
-
-        for (String value : vehicleInfo) {
-            System.out.println("\t" + value);
-        }
-
-        System.out.println();
-    }
 }

@@ -205,6 +205,24 @@ public class Automobile {
     }
 
     /**
+     * Formats and prints the vehicle information from the listVehicleInfo method
+     * @param automobileInventory
+     * @param name
+     */
+    public static void printVehicleInfo(HashMap<String, Automobile> automobileInventory, String name) {
+        String[] vehicleInfo = listVehicleInfo(automobileInventory, name);
+
+        System.out.println("Vehicle Info for " + name + ":");
+        System.out.println("------------------------------");
+
+        for (String value : vehicleInfo) {
+            System.out.println("\t" + value);
+        }
+
+        System.out.println();
+    }
+
+    /**
      * Accessor method for the Automobile's make
      * @return the make of the Automobile
      */

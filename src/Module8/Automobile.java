@@ -129,20 +129,16 @@ public class Automobile {
     public static String removeVehicle(HashMap<String, Automobile> automobileInventory, String name) {
         // Check if the inventory is empty
         if (automobileInventory.isEmpty()) {
-            System.out.println();
-
             return "Cannot remove vehicle -- inventory is empty.";
         }
 
-        // Assign a reference to the automobile that gets removed (in case it is null)
-        Automobile removedVehicle = automobileInventory.remove(name);
-
-        // Check if the vehicle was not present in the inventory
-        if (removedVehicle == null) {
-            System.out.println();
-
-            return "Cannot remove vehicle -- details do not match any vehicle in the list.";
+        // Check if the HashMap does NOT have the specified key
+        if (!automobileInventory.containsKey(name)) {
+            return "Cannot remove vehicle -- name \"" + name +"\" does not exist in inventory.";
         }
+
+        // Remove the vehicle
+        automobileInventory.remove(name);
 
         return "Vehicle successfully removed from inventory";
     }

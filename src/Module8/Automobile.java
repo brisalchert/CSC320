@@ -64,6 +64,10 @@ public class Automobile {
         int year, mileage;
 
         try {
+            System.out.println();
+            System.out.println("Adding new vehicle:");
+            System.out.println("------------------------------");
+
             // Prompt the user for info for new vehicle
             System.out.print("Enter a make: ");
             make = input.next();
@@ -94,7 +98,7 @@ public class Automobile {
 
         System.out.println();
 
-        return "Vehicle successfully added to the list.";
+        return "Vehicle \"" + name + "\" successfully added to the list.";
     }
 
     /**
@@ -117,7 +121,7 @@ public class Automobile {
 
         System.out.println();
 
-        return "Vehicle successfully added to the list";
+        return "Vehicle \"" + name + "\" successfully added to the list.";
     }
 
     /**
@@ -140,7 +144,7 @@ public class Automobile {
         // Remove the vehicle
         automobileInventory.remove(name);
 
-        return "Vehicle successfully removed from inventory";
+        return "Vehicle \"" + name + "\" successfully removed from inventory.";
     }
 
     /**
@@ -159,10 +163,11 @@ public class Automobile {
         if (vehicleToUpdate == null) {
             System.out.println();
 
-            return "Cannot update vehicle -- details do not match any vehicle in the list";
+            return "Cannot update vehicle -- name \"" + name + "\" does not match any vehicle in the list.";
         }
 
         System.out.println("Updating info for " + name + ":");
+        System.out.println("------------------------------");
 
         // Attempt to update the vehicle with new attributes from the user
         try {
@@ -183,7 +188,7 @@ public class Automobile {
 
             System.out.println();
 
-            return "Vehicle successfully updated.";
+            return "Vehicle \"" + name + "\" successfully updated.";
         }
         catch (InputMismatchException inputError) {
             System.out.println();
@@ -217,7 +222,7 @@ public class Automobile {
             return vehicleInfo;
         }
         catch (NullPointerException nullError) {
-            return new String[]{"Invalid input -- no such vehicle in list"};
+            return new String[]{"Invalid input -- no such vehicle in list."};
         }
     }
 

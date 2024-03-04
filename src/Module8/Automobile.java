@@ -260,6 +260,10 @@ public class Automobile {
         System.out.println();
     }
 
+    /**
+     * Prints the entire automobile inventory in a HashMap inventory
+     * @param automobileInventory the HashMap inventory of Automobiles
+     */
     public static void printInventory(HashMap<String, Automobile> automobileInventory) {
         System.out.println("VEHICLE INVENTORY:");
         System.out.println("------------------------------------------------------------");
@@ -270,6 +274,10 @@ public class Automobile {
         }
     }
 
+    /**
+     * Prints the automobile inventory in a HashMap inventory to a file if the user requests it.
+     * @param automobileInventory the HashMap inventory of Automobiles.
+     */
     public static void printToFile(HashMap<String, Automobile> automobileInventory) {
         Scanner input = new Scanner(System.in);
         String userInput;

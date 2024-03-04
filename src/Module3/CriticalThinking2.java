@@ -43,6 +43,8 @@ public class CriticalThinking2 {
 
         // Return information to the user
         System.out.println("Your tax withholding is " + currencyFormatter.format(taxWithholding) + ".");
+
+        input.close();
     }
 
     /**

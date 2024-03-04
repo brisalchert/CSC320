@@ -7,6 +7,8 @@
 
 package Module8;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -256,6 +258,60 @@ public class Automobile {
         }
 
         System.out.println();
+    }
+
+    public static void printInventory(HashMap<String, Automobile> automobileInventory) {
+        System.out.println("VEHICLE INVENTORY:");
+        System.out.println("------------------------------------------------------------");
+
+        // Print vehicle information for each vehicle in the inventory
+        for (String vehicleName : automobileInventory.keySet()) {
+            printVehicleInfo(automobileInventory, vehicleName);
+        }
+    }
+
+    public static void printToFile(HashMap<String, Automobile> automobileInventory) {
+        Scanner input = new Scanner(System.in);
+        String userInput;
+
+        System.out.println("Export automobile inventory to file (Y/N)?");
+
+        userInput = input.nextLine();
+
+        System.out.println();
+
+        switch (userInput) {
+            case "Y":
+                try {
+                    // Create a new file a PrintStream
+                    PrintStream fileStream = new PrintStream("C:/Temp/Autos.txt");
+
+                    // Save a reference of the console output stream
+                    PrintStream console = System.out;
+
+                    // Set the output stream to the file
+                    System.setOut(fileStream);
+
+                    // Print the inventory to the file
+                    printInventory(automobileInventory);
+
+                    // Set output stream back to the console
+                    System.setOut(console);
+
+                    System.out.println("Inventory exported to file.");
+                }
+                catch (FileNotFoundException error) {
+                    System.out.println("Error exporting to file: file not found.");
+                }
+
+                break;
+            case "N":
+                System.out.println("Inventory not exported to file.");
+
+                break;
+            default:
+                System.out.println("Invalid input -- inventory not exported to file.");
+        }
     }
 
     /**

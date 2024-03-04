@@ -52,6 +52,13 @@ public class Automobile {
      * @return a message indicating success or failure
      */
     public static String addVehicle(HashMap<String, Automobile> automobileInventory, String name) {
+        // Check if name already exists in HashMap
+        if (automobileInventory.containsKey(name)) {
+            System.out.println();
+
+            return "Could not add vehicle -- name \"" + name + "\" already exists in inventory.";
+        }
+
         Scanner input = new Scanner(System.in);
         String make, model, color;
         int year, mileage;
@@ -99,6 +106,13 @@ public class Automobile {
      */
     public static String addVehicle(HashMap<String, Automobile> automobileInventory, Automobile automobile,
                                     String name) {
+        // Check if name already exists in HashMap
+        if (automobileInventory.containsKey(name)) {
+            System.out.println();
+
+            return "Could not add vehicle -- name \"" + name + "\" already exists in inventory.";
+        }
+
         automobileInventory.put(name, automobile);
 
         System.out.println();
